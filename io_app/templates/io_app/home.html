@@ -1,0 +1,77 @@
+{% extends "io_app/base.html" %}
+
+{% block content %}
+<h1>IO List Overview</h1>
+
+<h2>AI List</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Field tag</th>
+        <th>PLC tag</th>
+        <th>For more detail</th>
+        <th>For more detail(HMI)</th>
+    </tr>
+    {% for ai in ais %}
+    <tr>
+        <td>{{ ai.field_tag }}</td>
+        <td>{{ ai.plc_tag }}</td>
+        <td><a href="{% url 'ai_detail' ai.pk %}">Everythings</a></td>
+        <td><a href="{% url 'ai_detail_hmi' ai.pk %}">HMIs</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>DI List</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Field tag</th>
+        <th>PLC tag</th>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+
+    {% for di in dis %}
+    <tr>
+        <td><a href="{% url 'di_detail' di.pk %}">{{ di.field_tag }}</a></td>
+        <td>{{ di.plc_tag }}</td>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>DO List</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Field tag</th>
+        <th>PLC tag</th>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+
+    {% for do in dos %}
+    <tr>
+        <td><a href="{% url 'do_detail' do.pk %}">{{ do.field_tag }}</a></td>
+        <td>{{ do.plc_tag }}</td>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>AO List</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Field tag</th>
+        <th>PLC tag</th>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+
+    {% for ao in aos %}
+    <tr>
+        <td><a href="{% url 'ao_detail' ao.pk %}">{{ ao.field_tag }}</a></td>
+        <td>{{ ao.plc_tag }}</td>
+        <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

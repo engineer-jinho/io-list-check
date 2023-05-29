@@ -1,0 +1,23 @@
+<h1>di Detail # {{ di.pk }} </h1>
+
+<a href="{% url 'home' %}">Home</a>
+{% if prev_di %}
+    <a href="{% url 'di_detail' prev_di.pk %}">Previous</a>
+{% endif %}
+{% if next_di %}
+    <a href="{% url 'di_detail' next_di.pk %}">Next</a>
+{% endif %}
+
+
+
+<table>
+    <tr>
+        <th>Field tag</th>
+        <td>{{ di.field_tag }}</td>
+    </tr>
+    <tr>
+        <th>PLC tag</th>
+        <td>{{ di.plc_tag }}</td>
+    </tr>
+    <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+</table>
