@@ -259,4 +259,63 @@ python manage.py runserver
 
 ```
 
+### AI detail
+```html
+{% extends "io_app/base.html" %}
+
+{% block content %}
+<h1>AI Detail # {{ ai.pk }} </h1>
+
+<a href="{% url 'home' %}">Home</a>
+{% if prev_ai %}
+    <a href="{% url 'ai_detail' prev_ai.pk %}">Previous</a>
+{% endif %}
+{% if next_ai %}
+    <a href="{% url 'ai_detail' next_ai.pk %}">Next</a>
+{% endif %}
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Field tag</th>
+        <td>{{ ai.field_tag }}</td>
+    </tr>
+    <tr>
+        <th>PLC tag</th>
+        <td>{{ ai.plc_tag }}</td>
+    </tr>
+    <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+</table>
+{% endblock %}
+
+
+```
+
+### hmi detail
+```html
+<h1>AI Detail # {{ ai.pk }} </h1>
+
+<a href="{% url 'home' %}">Home</a>
+{% if prev_ai %}
+    <a href="{% url 'ai_detail_hmi' prev_ai.pk %}">Previous</a>
+{% endif %}
+{% if next_ai %}
+    <a href="{% url 'ai_detail_hmi' next_ai.pk %}">Next</a>
+{% endif %}
+
+
+
+<table>
+    <tr>
+        <th>Field tag</th>
+        <td>{{ ai.field_tag }}</td>
+    </tr>
+    <tr>
+        <th>PLC tag</th>
+        <td>{{ ai.plc_tag }}</td>
+    </tr>
+    <!-- 추가로 필요한 필드를 여기에 추가하십시오. -->
+</table>
+```
 
